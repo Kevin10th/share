@@ -1,0 +1,38 @@
+使用  bash 命令
+要在share文件下右键open git bash here
+
+git add .      //第一步把新文件夹和文件都添加到准备上传的暂存区（注意最后是一个英文句号 .，代表添加所有变化）：
+git commit -m "删除了旧主页，新增了20260714A网页"   //第二步提交更新
+git push origin main      //第三步更新到GitHub
+
+
+
+
+把自己的的git文件 同步到GitHub
+
+git config --global user.name "Kevin10th"    //设置用户名
+git config --global user.email "your_email@example.com"    //设置邮箱
+
+ssh-keygen -t ed25519 -C "your_email@example.com"     //生成SSH密钥
+敲回车后，屏幕上会连续出现几次提示（问你存放在哪、要不要设置密码），你不需要输入任何内容，一路「连续按 3 次回车」即可。
+
+clip < ~/.ssh/id_ed25519.pub   //我们现在要把刚刚生成的这把“钥匙”复制下来，放到 GitHub 网站上。
+
+
+第五步：去 GitHub 网站贴上这把“钥匙”
+打开 GitHub 网页，点击右上角你的头像，在下拉菜单中点击 Settings（个人设置，不是仓库设置哦）。
+在左侧菜单栏中，找到并点击 SSH and GPG keys。
+点击右上角绿色的 New SSH key 按钮。
+在弹出的页面中：
+Title（标题）：随便填一个，比如 My PC 或 My Laptop。
+Key（内容）：在巨大的输入框里点击鼠标右键，选择粘贴（或者直接按 Ctrl + V）。你会看到一长串以 ssh-ed25519 开头的代码。
+点击下方的 Add SSH key 按钮保存（可能需要你输入一次 GitHub 登录密码进行确认）。
+大功告成！现在你的电脑和 GitHub 已经安全地“手拉手”了。
+准备好之后告诉我，我们马上进行最后一步：把仓库下载（Clone）到本地，然后用命令一键上传新网页！
+
+
+mkdir -p ~/.ssh     //中文报错， 使用强制创建
+ssh-keygen -t ed25519 -C "kailongkailong527@gmail.com" -f ~/.ssh/id_ed25519    //重新生成密钥（手动指定保存路径）
+如果顺利，你就会看到那一幅由符号组成的“小字符画”了！
+
+clip < ~/.ssh/id_ed25519.pub   //复制钥匙内容
